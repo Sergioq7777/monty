@@ -1,9 +1,10 @@
 #include "monty.h"
+char *tok;
 
 /**
- *_pushstack - add node to stack
+ *_pushstack - adds a node to the stack
  *@head: head
- *@num: number nodes
+ *@num: number
  */
 void _pushstack(stack_t **head, int num)
 {
@@ -22,11 +23,10 @@ void _pushstack(stack_t **head, int num)
 		(*head)->prev = new;
 	*head = new;
 }
-
 /**
- *_pushqueue - adds node to queue
- *@head: front
- *@num: number nodes
+ *_pushqueue - adds a node to the queue
+ *@head: head
+ *@num: number to add to the node
  */
 void _pushqueue(stack_t **head, int num)
 {
@@ -55,10 +55,27 @@ void _pushqueue(stack_t **head, int num)
 	new->next = NULL;
 	aux->next = new;
 }
-
 /**
- *freee - free
- *@head: head
+ *_pall - prints stack nodes
+ *@head: head.
+ *@lin: number error mesasge
+ */
+void _pall(stack_t **head, unsigned int lin)
+{
+	stack_t *aux = NULL;
+
+	(void) lin;
+	aux = *head;
+	while (aux)
+	{
+		printf("%d\n", aux->n);
+		aux = aux->next;
+	}
+	tok = NULL;
+}
+/**
+ *freee - free stack
+ *@head: head.
  */
 void freee(stack_t **head)
 {
@@ -71,4 +88,18 @@ void freee(stack_t **head)
 		free(*head);
 		*head = aux;
 	}
+}
+/**
+ *_pint - prints stack
+ *@head: head.
+ *@lin: number error mesasge
+ */
+void _pint(stack_t **head, unsigned int lin)
+{
+	if (*head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", lin);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*head)->n);
 }

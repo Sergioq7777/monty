@@ -1,0 +1,16 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+typedef struct
+{
+        struct element *next;
+	char* nombre;
+} element;
+
+int main(){
+
+
+	return 0;
+}

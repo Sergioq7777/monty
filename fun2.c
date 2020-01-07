@@ -1,18 +1,18 @@
 #include "monty.h"
 
-
+char *tok;
 /**
  *_pop - removes node stack
  *@head: head
- *@line_number: number possible error
+ *@lin: number possible error
  */
-void _pop(stack_t **head, unsigned int line_number)
+void _pop(stack_t **head, unsigned int lin)
 {
 	stack_t *aux;
 
 	if (*head == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", lin);
 		exit(EXIT_FAILURE);
 	}
 	aux = *head;
@@ -24,9 +24,9 @@ void _pop(stack_t **head, unsigned int line_number)
 /**
  *_swap - swap top stack
  *@head: head
- *@l_n: number possible error
+ *@lin: number possible error
  */
-void _swap(stack_t **head, unsigned int l_n)
+void _swap(stack_t **head, unsigned int lin)
 {
 	stack_t *aux;
 	int count = 0, to_a = 0, to_b = 0;
@@ -39,7 +39,7 @@ void _swap(stack_t **head, unsigned int l_n)
 	}
 	if (count < 2)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", l_n);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", lin);
 		exit(EXIT_FAILURE);
 	}
 	aux = *head;
@@ -53,9 +53,9 @@ void _swap(stack_t **head, unsigned int l_n)
 /**
  *_add - adds elements stack
  *@head: head
- *@l_n: number possible error
+ *@lin: number possible error
  */
-void _add(stack_t **head, unsigned int l_n)
+void _add(stack_t **head, unsigned int lin)
 {
 	stack_t *aux;
 	int count = 0;
@@ -68,7 +68,7 @@ void _add(stack_t **head, unsigned int l_n)
 	}
 	if (count < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", l_n);
+		fprintf(stderr, "L%d: can't add, stack too short\n", lin);
 		exit(EXIT_FAILURE);
 	}
 	aux = *head;
@@ -81,10 +81,10 @@ void _add(stack_t **head, unsigned int l_n)
 /**
  *_nop - the nop opcode
  *@head: head
- *@l_n: number possible error
+ *@lin: number possible error
  */
-void _nop(stack_t **head, unsigned int l_n)
+void _nop(stack_t **head, unsigned int lin)
 {
 	(void) head;
-	(void) l_n;
+	(void) lin;
 }
